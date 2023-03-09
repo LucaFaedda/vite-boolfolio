@@ -37,18 +37,25 @@ import ProjectCard from './ProjectCard.vue';
   <div>
     <div class="container-fluid bk-personale">
       <div class="row">
-      
-          <div v-if="loading == true" class="d-flex justify-content-center ">
-              <div class="loader "></div>
-
-          </div>
-          <div v-else class="col-12 d-flex flex-wrap">
-            
-            <ProjectCard v-for="project in projects" :card="project" :url="baseUrl"></ProjectCard>
-
-          </div>
-          
+        <div v-if="loading == true" class="d-flex justify-content-center ">
+          <div class="loader "></div>
         </div>
+        <div v-else class="col-12 d-flex flex-wrap">
+          <ProjectCard v-for="project in projects" :card="project" :url="baseUrl"></ProjectCard>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center mt-4">
+          <ul class="pagination">
+            <li :class="currentPage == 1 ? 'disabled' : 'page-item'">
+              <button class="page-link btn btn-sm btn-success" @click="getProjects(currentPage - 1)">Prev</button>
+            </li>
+            <li :class="currentPage == lastPage ? 'disabled' : 'page-item'">
+              <button class="page-link btn btn-sm btn-success" @click="getProjects(currentPage + 1)">Next</button>
+            </li>
+          </ul>
+        </div>
+      </div>
 
     </div>
   </div>
