@@ -1,8 +1,8 @@
 <script>
 export default {
     props:{
-        card:Object,
-        url:String, // per richiamarlo per stampare la visualizzazzione bisogna usare card o comunque il nome dato nella props
+        card:Object,// per richiamarlo per stampare la visualizzazzione bisogna usare card o comunque il nome dato nella props
+        url:String, 
 
     },
     methods:{
@@ -19,8 +19,11 @@ export default {
             <h3 class="card-title text-danger">{{card.title}}</h3>
             <p class="card-text"><span class="fw-bold">Uscito il: </span>{{card.data_progetto}}<br>
             <span class="card-text"><span class="fw-bold">Difficoltà: </span>{{card.difficoltà}}</span></p>
-            <span class="card-text" ><span class="fw-bold">Difficoltà: </span>{{card.type.name == null ? 'non disponibile' : card.type.name}}</span><br>
-            <!-- <span class="card-text"><span class="fw-bold" :load="prova(card)">Difficoltà: </span>{{card.technology}}</span><br> -->
+            <!-- <span class="card-text" ><span class="fw-bold">Difficoltà: </span>{{card.type.name == null ? 'non disponibile' : card.type.name}}</span><br> -->
+            <span  class="card-text fw-bold"> Tecnologia usata:</span>
+            <span v-for="tecno in card.technology" :key="technology_id" >
+                 {{tecno.name}}
+            </span>
             
             <a href="#" class="btn btn-primary">Leggi il progetto</a>
         </div>
