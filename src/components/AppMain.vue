@@ -16,8 +16,8 @@ import ProjectCard from './ProjectCard.vue';
       }
     },
     methods:{
-      getProjects(){
-        axios.get(`${this.baseUrl}api/projects`).then((response) => {
+      getProjects(project_page){
+        axios.get(`${this.baseUrl}api/projects`, {params: {page: project_page}}).then((response) => {
           if(response.data.success){
             console.log(response.data)
             this.projects = response.data.results.data
@@ -29,7 +29,7 @@ import ProjectCard from './ProjectCard.vue';
       }
     },
     created(){
-      this.getProjects();
+      this.getProjects(this.currentPage);
     }
   }
 </script>
