@@ -33,15 +33,19 @@ import ProjectCard from './ProjectCard.vue';
   <div>
     <div class="container-fluid bk-personale">
       <div class="row">
-        <div class="col-12 justify-content-center d-flex">
+      
           <div v-if="loading == true">
-              <div class="loader"></div>
+              <div class="loader col-12"></div>
 
           </div>
-          <ProjectCard></ProjectCard>
+          <div v-else class="col-12 d-flex flex-wrap">
+            
+            <ProjectCard v-for="project in projects" :card="project" :url="baseUrl"></ProjectCard>
+
+          </div>
           
         </div>
-      </div>
+
     </div>
   </div>
 </template>
