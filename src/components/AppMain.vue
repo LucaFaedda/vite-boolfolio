@@ -12,14 +12,15 @@ import ProjectCard from './ProjectCard.vue';
         baseUrl: 'http://127.0.0.1:8000/',
         loading: true,
         currentPage: 1,
-        lastPage: null
+        lastPage: null,
+        technology: []
       }
     },
     methods:{
       getProjects(project_page){
         axios.get(`${this.baseUrl}api/projects`, {params: {page: project_page}}).then((response) => {
           if(response.data.success){
-            console.log(response.data)
+            // console.log(response.data)
             this.projects = response.data.results.data
             this.currentPage = response.data.results.current_page;
             this.lastPage = response.data.results.last_page
@@ -41,7 +42,7 @@ import ProjectCard from './ProjectCard.vue';
           <div class="loader "></div>
         </div>
         <div v-else class="col-12 d-flex flex-wrap">
-          <ProjectCard v-for="project in projects" :card="project" :url="baseUrl"></ProjectCard>
+          <ProjectCard v-for="project in projects" :card="project"  :url="baseUrl" :key="project.id"></ProjectCard>
         </div>
       </div>
       <div class="row">
