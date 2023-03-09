@@ -10,7 +10,9 @@ import ProjectCard from './ProjectCard.vue';
       return{
         projects: [],
         baseUrl: 'http://127.0.0.1:8000/',
-        loading: true
+        loading: true,
+        currentPage: 1,
+        lastPage: null
       }
     },
     methods:{
@@ -18,7 +20,9 @@ import ProjectCard from './ProjectCard.vue';
         axios.get(`${this.baseUrl}api/projects`).then((response) => {
           if(response.data.success){
             console.log(response.data)
-            this.projects = response.data.results;
+            this.projects = response.data.results.data
+            this.currentPage = response.data.results.current_page;
+            this.lastPage = response.data.results.last_page
             this.loading = false;
           }
         })
@@ -34,8 +38,8 @@ import ProjectCard from './ProjectCard.vue';
     <div class="container-fluid bk-personale">
       <div class="row">
       
-          <div v-if="loading == true">
-              <div class="loader col-12"></div>
+          <div v-if="loading == true" class="d-flex justify-content-center ">
+              <div class="loader "></div>
 
           </div>
           <div v-else class="col-12 d-flex flex-wrap">
@@ -53,7 +57,7 @@ import ProjectCard from './ProjectCard.vue';
 
 
   .loader {
-  margin-top:10rem;
+    margin-top: 20rem;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #22333B;
