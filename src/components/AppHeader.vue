@@ -1,6 +1,19 @@
 <script>
 export default {
-    
+    data(){
+         return{
+            menuItems:[
+                {
+                    label: 'Homepage',
+                    routeName: 'homepage'
+                },
+                {
+                    label: 'Progetti',
+                    routeName: 'progetti'
+                },
+            ]
+        }
+    }
 }
 </script>
 <template lang="">
@@ -9,8 +22,11 @@ export default {
             <h2>BOOLFOLIO</h2>
         </div>
         <div  class="pe-5">
-            <ul class="list-unstyled">
-                <li>Homepage</li>
+            <ul class="list-unstyled d-flex">
+                <li class="mx-3" v-for="(item, index) in menuItems" :key="index">
+                    <router-link :to="{name: item.routeName}" >{{item.label}}</router-link>
+                
+                </li>
             </ul>
         </div>
     </header>
