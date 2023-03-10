@@ -5,12 +5,13 @@ import AppMain from './components/AppMain.vue'
 <template>
   <div>
    <router-view></router-view>
+   <AppMain></AppMain>
   </div>
-  <AppMain  />
+
 </template>
 
 <style lang="scss">
-@use './components/style/general.scss';
+@use './style/general.scss';
 
 </style>
 

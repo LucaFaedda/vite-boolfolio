@@ -8,11 +8,6 @@ export default {
         return{
             store,
         }
-    },
-    methods:{
-        prova(card){
-            console.log(this.card)
-        }
     }
 }
 </script>
@@ -23,9 +18,10 @@ export default {
             <h3 class="card-title text-danger">{{card.title}}</h3>
             <p class="card-text"><span class="fw-bold">Uscito il: </span>{{card.data_progetto}}<br>
             <span class="card-text"><span class="fw-bold">Difficoltà: </span>{{card.difficoltà}}</span></p>
-            <!-- <span class="card-text" ><span class="fw-bold">Difficoltà: </span>{{card.type.name == null ? 'non disponibile' : card.type.name}}</span><br> -->
+            <span class="card-text" ><span class="fw-bold">Difficoltà: </span>{{card.type ? card.type.name : 'non disponibile'}}</span><br> 
+            <!-- // se è true allora stampami card.type.name altrimenti metti non disponibile -->
             <span  class="card-text fw-bold"> Tecnologia usata:</span>
-            <span v-for="tecno in card.technology" :key="technology_id" >
+            <span v-for="tecno in card.technology" :key="card.technology.id" >
                  {{tecno.name}}
             </span>
             
