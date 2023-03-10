@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'; 
 
 import AppHomepage from './pages/AppHomepage.vue' // qua ci vanno tutti gli import delle varie pagine che vogliamo richimare con le rotte dentro router-view
-import ProjectCard from './pages/ProjectCard.vue' 
+import AppMain from './pages/AppMain.vue' 
 
 const router = createRouter({
     history: createWebHistory(),
@@ -14,7 +14,7 @@ const router = createRouter({
         {
             path: '/blog',
             name: 'progetti',
-            component: ProjectCard
+            component: AppMain
         },
 
     ]

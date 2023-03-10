@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import { store } from '../store';
-import ProjectCard from './pages/ProjectCard.vue';
+import ProjectCard from '../components/ProjectCard.vue';
   export default {
     components:{
       ProjectCard

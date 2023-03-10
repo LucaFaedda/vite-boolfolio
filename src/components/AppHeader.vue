@@ -24,7 +24,7 @@ export default {
         <div  class="pe-5">
             <ul class="list-unstyled d-flex">
                 <li class="mx-3" v-for="(item, index) in menuItems" :key="index">
-                    <router-link :to="{name: item.routeName}" >{{item.label}}</router-link>
+                    <router-link :to="{name: item.routeName}" class="text-light nav-link">{{item.label}}</router-link>
                 
                 </li>
             </ul>
