@@ -8,7 +8,7 @@ const router = createRouter({
         {
             path: '/',
             name: 'homepage',
-            componenet: AppHomepage
+            component: AppHomepage
         }
 
     ]

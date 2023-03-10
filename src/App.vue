@@ -1,11 +1,12 @@
 <script setup>
-import AppMain from './components/AppMain.vue'
+import AppHeader from './components/AppHeader.vue'
 </script>
 
 <template>
   <div>
-   <router-view></router-view>
-   <AppMain></AppMain>
+    <AppHeader></AppHeader>
+    <router-view></router-view>
+   
   </div>
 
 </template>
