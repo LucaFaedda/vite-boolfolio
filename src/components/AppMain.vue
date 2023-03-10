@@ -1,6 +1,7 @@
 <script>
 
 import axios from 'axios';
+import { store } from '../store';
 import ProjectCard from './ProjectCard.vue';
   export default {
     components:{
@@ -8,8 +9,8 @@ import ProjectCard from './ProjectCard.vue';
     },
     data(){
       return{
+        store,
         projects: [],
-        baseUrl: 'http://127.0.0.1:8000/',
         loading: true,
         currentPage: 1,
         lastPage: null,
@@ -18,12 +19,12 @@ import ProjectCard from './ProjectCard.vue';
     },
     methods:{
       getProjects(project_page){
-        axios.get(`${this.baseUrl}api/projects`, {params: {page: project_page}}).then((response) => {
+        axios.get(`${this.store.baseUrl}api/projects`, {params: {page: project_page}}).then((response) => {
           if(response.data.success){
             // console.log(response.data)
-            this.projects = response.data.results.data
-            this.currentPage = response.data.results.current_page;
-            this.lastPage = response.data.results.last_page
+            this.projects = response.data.results.data // recupero i miei dati richiamati con axios
+            this.currentPage = response.data.results.current_page; // recupero la pagina corrente
+            this.lastPage = response.data.results.last_page // recupero l'ultima pagina
             this.loading = false;
           }
         })
@@ -42,7 +43,7 @@ import ProjectCard from './ProjectCard.vue';
           <div class="loader "></div>
         </div>
         <div v-else class="col-12 d-flex flex-wrap">
-          <ProjectCard v-for="project in projects" :card="project"  :url="baseUrl" :key="project.id"></ProjectCard>
+          <ProjectCard v-for="project in projects" :card="project"  :key="project.id"></ProjectCard>
         </div>
       </div>
       <div class="row">

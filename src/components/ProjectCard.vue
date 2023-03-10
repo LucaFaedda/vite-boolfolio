@@ -1,9 +1,13 @@
 <script>
+import { store } from '../store';
 export default {
     props:{
         card:Object,// per richiamarlo per stampare la visualizzazzione bisogna usare card o comunque il nome dato nella props
-        url:String, 
-
+    },
+    data(){
+        return{
+            store,
+        }
     },
     methods:{
         prova(card){
@@ -14,7 +18,7 @@ export default {
 </script>
 <template >
     <div class="card mx-5 my-3"  style="width: 18rem;">
-        <img :src=" card.cover_image != null ? `${url}storage/${card.cover_image}` : 'https://picsum.photos/200/130'" :alt="card.title">
+        <img :src=" card.cover_image != null ? `${store.baseUrl}storage/${card.cover_image}` : 'https://picsum.photos/200/130'" :alt="card.title">
         <div class="card-body">
             <h3 class="card-title text-danger">{{card.title}}</h3>
             <p class="card-text"><span class="fw-bold">Uscito il: </span>{{card.data_progetto}}<br>
