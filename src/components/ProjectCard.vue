@@ -20,11 +20,16 @@ export default {
             <span class="card-text"><span class="fw-bold">Difficoltà: </span>{{card.difficoltà}}</span></p>
             <span class="card-text" ><span class="fw-bold">Difficoltà: </span>{{card.type ? card.type.name : 'non disponibile'}}</span><br> 
             <!-- // se è true allora stampami card.type.name altrimenti metti non disponibile -->
-            <span  class="card-text fw-bold"> Tecnologia usata:</span>
-            <span v-for="tecno in card.technology" :key="card.technology.id" >
-                 {{tecno.name}}
-            </span>
-            
+            <div v-if="!card.technology || !card.technology.length">
+                <span  class="card-text fw-bold"> Tecnologia usata:</span><span>Non disponibile</span><br>
+            </div>
+            <div v-else >
+                <span  class="card-text fw-bold"> Tecnologia usata:</span>
+                <span  v-for="tecno in card.technology" :key="card.technology.id" >
+                        {{tecno.name}}
+                </span>
+
+            </div>
             <a href="#" class="btn btn-primary">Leggi il progetto</a>
         </div>
     </div>
