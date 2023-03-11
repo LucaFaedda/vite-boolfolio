@@ -30,7 +30,9 @@ export default {
                 </span>
 
             </div>
-            <a href="#" class="btn btn-primary">Leggi il progetto</a>
+            {{ card.slug }}
+            <router-link :to="{ name: 'single-project', params: { slug: card.slug}}" class="btn btn-primary">Leggi il progetto</router-link>
+            
         </div>
     </div>
 </template>
