@@ -59,7 +59,7 @@ export default {
             width: 60%;
             border-radius: 1rem;
             border: none;
-            background-color: #008bf8;
+            background-color: #074eb8;
             color: #fff;
             font-size: 1rem;
             padding: .5rem 1rem;
@@ -74,8 +74,8 @@ export default {
     }
 
     .card-personale:hover {
-        border-color: #008bf8;
-        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+        border-color: #074eb8;
+        box-shadow: 10px 10px 18px 0 rgba(0, 0, 0, 0.25);
         }
 
     .card-personale:hover .card-button-personale {
