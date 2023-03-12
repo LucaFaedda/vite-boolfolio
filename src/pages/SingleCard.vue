@@ -1,11 +1,13 @@
 <script>
 import axios from 'axios';
 import { store } from '../store';
+
 export default {
     data(){
         return{
             store,
-            project: []
+            project: [],
+            newDate: ''
         }
     },
     methods:{
@@ -20,22 +22,26 @@ export default {
                 }
             })
         },
+        date(){
+            this.newDate = this.project.data_progetto
+        }
+
 
     },
     created(){
-        this.getProject(); 
+        this.getProject();
     }
 }
 </script>
 <template lang="" >
     <div>
         <div class="container">
-            <div class="row">
-                <div class="col-6 text-light">
-                    <p><span>Difficolà d'esecuzione: </span><i class="fa-solid fa-circle" v-for="item in project.difficoltà" >{{item.difficoltà}}</i></p>
+            <div class="row mt-4 text-light">
+                <div class="col-6 ">
+                    <p><span class="fw-bold">Difficolà d'esecuzione: </span><i class="fa-regular fa-circle mx-1" v-for="item in project.difficoltà" >{{item.difficoltà}}</i></p>
                 </div>
                 <div class="col-6">
-                    
+                    <p><span class="fw-bold me-3">Creato il:</span>{{project.data_progetto}}</p>
                 </div>
             </div>
         </div>
@@ -73,6 +79,10 @@ export default {
     em{
         margin: 10px 0px 0px 12px;
         color: #fff;
+    }
+
+    .fa-regular{
+        color: #4F9D69;
     }
 
 </style>

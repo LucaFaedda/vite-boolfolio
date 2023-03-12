@@ -19,7 +19,7 @@ export default {
 <template lang="">
     <header class=" d-flex align-item-center  navbar justify-content-between text-light">
         <div class="ps-5">
-            <h2>BOOLFOLIO</h2>
+            <router-link :to="{name: 'homepage'}" class="text-light no-decoration"><h2>BOOLFOLIO</h2></router-link>
         </div>
         <div  class="pe-5">
             <ul class="list-unstyled d-flex">
@@ -32,11 +32,25 @@ export default {
     </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
     
     header{
         height: 100px;
         background-color: #003554;
+    }
+
+    .nav-link{
+        border-bottom: 1px solid #d6cd4f;
+        padding-bottom: 10px;
+
+        &:hover{
+            border-bottom: #ff0202 2px solid;
+            font-size: 20px;
+        }
+    }
+
+    .no-decoration{
+        text-decoration: none;
     }
 
 </style>
