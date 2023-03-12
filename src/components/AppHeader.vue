@@ -18,8 +18,12 @@ export default {
 </script>
 <template lang="">
     <header class=" d-flex align-item-center  navbar justify-content-between text-light">
-        <div class="ps-5">
+        <div class="ps-5 d-flex align-item-center">
             <router-link :to="{name: 'homepage'}" class="text-light no-decoration"><h2>BOOLFOLIO</h2></router-link>
+            <div class="circle">
+
+                <img src="../assets/tyrannosaurus-rex.png">
+            </div>
         </div>
         <div  class="pe-5">
             <ul class="list-unstyled d-flex">
@@ -51,6 +55,21 @@ export default {
 
     .no-decoration{
         text-decoration: none;
+    }
+
+    .circle{
+        width: 50px;
+        height: 50px;
+        // border: 1px solid black;
+        border-radius: 50%;
+        margin-left: 10px;
+        background-color: #0b69a0bd;
+        
+        img{
+            padding: 10px;
+            width: 100%;
+            object-fit: contain;
+        }
     }
 
 </style>
