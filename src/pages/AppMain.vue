@@ -37,7 +37,7 @@ import ProjectCard from '../components/ProjectCard.vue';
 </script>
 <template lang="">
   <div>
-    <div class="container-fluid bk-personale">
+    <div class="container-fluid">
       <div class="row">
         <div v-if="loading == true" class="d-flex justify-content-center ">
           <div class="loader "></div>

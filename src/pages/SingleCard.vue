@@ -5,20 +5,61 @@ export default {
     data(){
         return{
             store,
-            project: null
+            project: []
         }
-    }, 
+    },
+    methods:{
+        getProject(){
+            axios.get(`${this.store.baseUrl}api/project/${this.$route.params.slug}`).then((response)=> {
+                this.project =  response.results
+                if (response.data && response.data.results) {
+                    this.project = response.data.results;
+                    console.log(this.project); // stampa l'oggetto project nella console
+                } else {
+                    console.log('Impossibile recuperare il progetto'); // il controllo mi servive per vedere se iniziliazzavo bene l'oggetto project
+      }
+
+            })
+        }
+    },
     created(){
-        axios.get(`${this.store.baseUrl}api/project/${this.$route.params.slug}`).then((response)=> {
-            this.project = response.data.project 
-        })
+        this.getProject(); 
     }
 }
 </script>
-<template lang="">
-    
+<template lang="" >
+    <div>
+
+        <div class="container mt-5">
+            <div class="row bd-personale ">
+                <div class="col-12 text-light mt-5">
+                    <h2 class="ms-3">
+                        {{project.title}}
+                    </h2>
+                </div>
+                <div class="col-12 d-flex flex-column">
+                    <img :src=" project.cover_image != null ? `${store.baseUrl}storage/${project.cover_image}` : 'https://picsum.photos/200/130'" :alt="project.title">
+                    <em>{{project.title}}</em>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
-<style lang="">
+<style lang="scss">
     
+    .bd-personale{
+        border-top: 2px rgba(250, 250, 117, 0.863) solid;
+    }
+
+    img{
+        margin: 10px 0px 0px 12px;
+        width: 300px;
+    }
+
+    em{
+        margin: 10px 0px 0px 12px;
+        color: #fff;
+    }
+
 </style>
