@@ -4,7 +4,7 @@
     }
 </script>
 <template lang="">
-    <div class="text-center bk-personale">
+    <div class="text-center ">
         <h2 class="mt-10">Benvenuti in Boolpres</h2>
     </div>
 </template>
@@ -13,7 +13,7 @@
 
     .mt-10{
         padding-top: 10rem;
-        color: #fff
+
     }
 
 </style>
