@@ -11,6 +11,10 @@ export default {
                     label: 'Progetti',
                     routeName: 'progetti'
                 },
+                {
+                    label: 'Contatti',
+                    routeName: 'contatti'
+                },
             ]
         }
     }

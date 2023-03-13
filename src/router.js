@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import AppHomepage from './pages/AppHomepage.vue' // qua ci vanno tutti gli import delle varie pagine che vogliamo richimare con le rotte dentro router-view
 import AppMain from './pages/AppMain.vue' 
 import SingleCard from './pages/SingleCard.vue' 
+import Contacts from './pages/Contacts.vue' 
 
 const router = createRouter({
     history: createWebHistory(),
@@ -21,6 +22,11 @@ const router = createRouter({
             path: '/blog/:slug', // mi serve per passargli il parametro slug
             name: 'single-project',
             component: SingleCard
+        },
+        {
+            path: '/contatti', // mi serve per passargli il parametro slug
+            name: 'contatti',
+            component: Contacts
         },
 
     ]

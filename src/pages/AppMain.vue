@@ -65,25 +65,39 @@ import ProjectCard from '../components/ProjectCard.vue';
 <style lang="scss">
 
 
-  .loader {
-    margin-top: 20rem;
-  border: 16px solid #f3f3f3;
+.loader {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  border: 4.5px solid #0000;
   border-radius: 50%;
-  border-top: 16px solid #22333B;
-  border-bottom: 16px solid #22333B;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
+  border-color: #dbdcef #0000;
+  animation: loader-e04l1k 1s infinite linear;
 }
 
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2.2px;
+  border: inherit;
+  border-radius: 50%;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.loader::before {
+  border-color: #474bff #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+
+.loader::after {
+  margin: 8.9px;
+}
+
+@keyframes loader-e04l1k {
+  100% {
+    transform: rotate(1turn);
+  }
 }
 </style>
