@@ -28,7 +28,7 @@ export default {
                 </div>
             </div>
             <div class="row mt-5">
-                <form>
+                <form @submit="sendForm">
                     <div class="col-12">
                         <div class="col-6">
                             <label class="control-label fw-bold my-2" for="nome">Nome</label>
@@ -53,12 +53,33 @@ export default {
                           <label for="message" class="form-label fw-bold my-2">Scrivi il tuo messaggio</label>
                           <textarea class="form-control" name="message" id="message" rows="3" placeholder="Inserisci un messaggio" v-model="message"></textarea>
                     </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn-personale mt-4">Invia</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </template>
 
-<style lang="">
+<style lang="scss" scoped>
+
+    .btn-personale{
+        width: 150px;
+        height: 50px;
+        border-radius: 45px;
+        transition: all 0.3s;
+        cursor: pointer;
+        font-size: 1.2rem;
+        background-color: #315cfd;
+        border: 3px solid #315cfd;
+        
+        &:hover{
+            // border: #315cfd;
+            background: #fff;
+            color:#315cfd;
+            font-size: 1.5rem;
+        }
+    }
     
 </style>
