@@ -65,7 +65,8 @@ export default {
         <div class="container">
             <div class="row mt-4 text-light">
                 <div class="col-6 ">
-                    <p ><span class="fw-bold">Tipologia: </span>{{project.type ? project.type.name : 'Non disponibile'}}</p><br> 
+                    <p class="fw-bold ">Tipologia: </p>
+                    <p class="tag">{{project.type ? project.type.name : 'Non disponibile'}}</p><br> 
                 </div>
                 <div class="col-6">
                     <p><span class="fw-bold me-3">Creato il:</span>{{project.data_progetto}}</p>
@@ -81,19 +82,50 @@ export default {
         border-top: 2px rgba(250, 250, 117, 0.863) solid;
         border-bottom: 2px rgba(250, 250, 117, 0.863) solid;
     }
-
     img{
         margin: 10px 0px 0px 12px;
         width: 300px;
     }
-
     em{
         margin: 10px 0px 0px 12px;
         color: #fff;
     }
-
     .fa-regular{
         color: #4F9D69;
+        
+    }
+    
+    .tag{
+        background: #eee;
+        border-radius: 3px 0 0 3px;
+        color: #999;
+        display: inline-block;
+        height: 26px;
+        line-height: 26px;
+        padding: 0 20px 0 23px;
+        position: relative;
+        margin: 0 10px 10px 0;
+        text-decoration: none;
+        -webkit-transition: color 0.2s;
+    }
+    .tag::after {
+    background: #242424;
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid #eee;
+    border-top: 13px solid transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    }
+
+    .tag:hover {
+    background-color: crimson;
+    color: white;
+    }
+
+    .tag:hover::after {
+    border-left-color: crimson; 
     }
 
 </style>
