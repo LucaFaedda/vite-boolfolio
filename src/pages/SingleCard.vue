@@ -69,7 +69,15 @@ export default {
                     <p class="tag">{{project.type ? project.type.name : 'Non disponibile'}}</p><br> 
                 </div>
                 <div class="col-6">
-                    <p><span class="fw-bold me-3">Creato il:</span>{{project.data_progetto}}</p>
+                    <p class="fw-bold me-3">Tecnologie usate:</p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <span  v-for="tecno in project.technology" :key="project.technology.id" class="tag">
+                                {{tecno.name}}
+                            </span>
+
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -96,9 +104,9 @@ export default {
     }
     
     .tag{
-        background: #eee;
+        background:  #4F9D69;
         border-radius: 3px 0 0 3px;
-        color: #999;
+        color:#fff;
         display: inline-block;
         height: 26px;
         line-height: 26px;
@@ -111,7 +119,7 @@ export default {
     .tag::after {
     background: #242424;
     border-bottom: 13px solid transparent;
-    border-left: 10px solid #eee;
+    border-left: 10px solid #4F9D69;
     border-top: 13px solid transparent;
     content: '';
     position: absolute;
@@ -122,6 +130,7 @@ export default {
     .tag:hover {
     background-color: crimson;
     color: white;
+    cursor: pointer;
     }
 
     .tag:hover::after {
