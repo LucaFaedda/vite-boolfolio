@@ -1,6 +1,28 @@
 <script>
+
+import { store } from '../store';
 export default {
-    
+    data(){
+        return{
+            name: '',
+            surname: '',
+            email:'',
+            phone: '',
+            message: ''
+
+        }
+    },
+    methods:{
+        sendForm(){
+            const data = {
+                name: this.name,
+                surname: this.surname,
+                email: this.email,
+                phone: this.phone,
+                message: this.message
+            }
+        }
+    }
 }
 </script>
 <template lang="">
