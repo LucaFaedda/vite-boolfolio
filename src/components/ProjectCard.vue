@@ -18,7 +18,7 @@ export default {
             <h3 class="text-danger">{{card.title}}</h3>
             <span class="fw-bold">Uscito il: </span>{{card.data_progetto}}<br>
             <span ><span class="fw-bold">Difficoltà: </span>{{card.difficoltà}}</span><br>
-            <span  ><span class="fw-bold">Difficoltà: </span>{{card.type ? card.type.name : 'non disponibile'}}</span><br> 
+            <span  ><span class="fw-bold">Tipologia: </span>{{card.type ? card.type.name : 'non disponibile'}}</span><br> 
             <!-- // se è true allora stampami card.type.name altrimenti metti non disponibile -->
             <div v-if="!card.technology || !card.technology.length">
                 <span  class=" fw-bold"> Tecnologia usata:</span><span>Non disponibile</span><br>

@@ -62,6 +62,16 @@ export default {
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="row mt-4 text-light">
+                <div class="col-6 ">
+                    <p ><span class="fw-bold">Tipologia: </span>{{project.type ? project.type.name : 'Non disponibile'}}</p><br> 
+                </div>
+                <div class="col-6">
+                    <p><span class="fw-bold me-3">Creato il:</span>{{project.data_progetto}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -69,6 +79,7 @@ export default {
     
     .bd-personale{
         border-top: 2px rgba(250, 250, 117, 0.863) solid;
+        border-bottom: 2px rgba(250, 250, 117, 0.863) solid;
     }
 
     img{
