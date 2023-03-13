@@ -1,26 +1,43 @@
 <script>
 
+import axios from 'axios';
 import { store } from '../store';
 export default {
     data(){
         return{
-            name: '',
-            surname: '',
+            store,
+            nome: '',
+            cognome: '',
             email:'',
             phone: '',
-            message: ''
+            message: '',
+            success: false,
 
         }
     },
     methods:{
         sendForm(){
             const data = {
-                name: this.name,
-                surname: this.surname,
+                nome: this.nome,
+                cognome: this.cognome,
                 email: this.email,
                 phone: this.phone,
                 message: this.message
             }
+
+            axios.post(`${this.store.baseUrl}api/contacts`, data).then((response) =>{
+                if(!response.data.success){
+                    this.errors = response.data.errors
+                }
+                else{
+                    this.nome= '',
+                    this.cognome= '',
+                    this.email='',
+                    this.phone= '',
+                    this.message= '' 
+                    this.success= true
+                }
+            })
         }
     }
 }
@@ -50,15 +67,15 @@ export default {
                 </div>
             </div>
             <div class="row mt-5">
-                <form @submit="sendForm">
+                <form @submit.prevent="sendForm">
                     <div class="col-12">
                         <div class="col-6">
                             <label class="control-label fw-bold my-2" for="nome">Nome</label>
-                            <input type="text" class="form-control" name="nome" id="nome" v-model="name" placeholder="Inserisci il nome">
+                            <input type="text" class="form-control" name="nome" id="nome" v-model="nome" placeholder="Inserisci il nome">
                         </div>
                         <div class="col-6">
                             <label class="control-label fw-bold my-2" for="cognome">Cognome</label>
-                            <input type="text" class="form-control" name="cognome" id="cognome" v-model="surname" placeholder="Inserisci il cognome">
+                            <input type="text" class="form-control" name="cognome" id="cognome" v-model="cognome" placeholder="Inserisci il cognome">
                         </div>
                     </div>
                     <div class="col-12">
@@ -75,7 +92,7 @@ export default {
                           <label for="message" class="form-label fw-bold my-2">Scrivi il tuo messaggio</label>
                           <textarea class="form-control" name="message" id="message" rows="3" placeholder="Inserisci un messaggio" v-model="message"></textarea>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 mb-5">
                         <button type="submit" class="btn-personale mt-4">Invia</button>
                     </div>
                 </form>

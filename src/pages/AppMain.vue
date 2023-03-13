@@ -42,7 +42,7 @@ import ProjectCard from '../components/ProjectCard.vue';
         <div v-if="loading == true" class="d-flex justify-content-center ">
           <div class="loader "></div>
         </div>
-        <div v-else class="col-12 d-flex justify-content-center flex-wrap">
+        <div v-else class="col-12 d-flex justify-content-center flex-wrap align-item-center">
           <ProjectCard v-for="project in projects" :card="project"  :key="project.id"></ProjectCard>
         </div>
       </div>
